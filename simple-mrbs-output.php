@@ -60,7 +60,7 @@ $connection=mysql_connect($mysqlhost, $mysqluser, $mysqlpwd) or die ("Could not 
 mysql_select_db($mysqldb, $connection) or die("Could not select database.");
 
 // This could be more elegant
-// Build SQL-Queries with name, description and start/end-Time, room_id doesn't match actual room number in the building(!)
+// Build SQL-queries with name, description and start/end-time, room_id doesn't match actual room number in the building(!)
 $sql01 = "SELECT name,description,from_unixtime(start_time),from_unixtime(end_time) FROM mrbs_entry WHERE from_unixtime(start_time) LIKE '%" . $date . "%' AND room_id = 1;" ;
 $sql02 = "SELECT name,description,from_unixtime(start_time),from_unixtime(end_time) FROM mrbs_entry WHERE from_unixtime(start_time) LIKE '%" . $date . "%' AND room_id = 2;" ;
 $sql03 = "SELECT name,description,from_unixtime(start_time),from_unixtime(end_time) FROM mrbs_entry WHERE from_unixtime(start_time) LIKE '%" . $date . "%' AND room_id = 3;" ;
@@ -88,7 +88,7 @@ printRoom(1,$qry01);
 printRoom(2,$qry02);
 printRoom(3,$qry03);
 
-echo "\n<p>--<em>last update: </em>" . date("d. M Y") . " um " . date("G:i") . "</p>";
+echo "\n<p>--<em>last update: </em>" . date("d. M Y") . " at " . date("G:i") . "</p>";
 
 echo "</body>\n";
 echo "</html>";
