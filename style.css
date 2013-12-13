@@ -1,0 +1,39 @@
+body {
+    text-align:center;
+}
+
+table {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+th {
+    text-align: center;
+    font-size: 150%;
+}
+
+td {
+    text-align: center;
+    font-size: 150%;
+}
+
+col.first {
+    width: 200;
+}
+
+col.second {
+    width: 300;
+}
+col.third {
+    width: 500;
+}
+
+div.bigfont {
+    font-size: 150%;
+    font-style: italic;
+}
+
+div.smallfont {
+    font-size: 75%;
+    font-style: italic;
+}

@@ -11,28 +11,28 @@ function printRoom($roomNr, $qry) {
 
 	echo "<h2>Room: X.". $roomNr . "</h2>";
 	if (mysql_num_rows($qry) == 0 ) {
-		echo "<em><font size=\"+2\"> No reservations in Room X". $roomNr. ".</font></em>";
+		echo "<div class=\"bigfont\"> No reservations in Room X". $roomNr. ".</div>";
 	} else {
 		// Starting table
 		echo "<table border=1>";
 		echo "<colgroup>";
-		echo "<col width=\"200\">";
-		echo "<col width=\"300\">";
-		echo "<col width=\"500\">";
+		echo "<col class=\"first\">\n";
+		echo "<col class=\"second\">\n";
+		echo "<col class=\"third\">\n";
 		echo "</colgroup>";
 		echo "<tr>";
-		echo "<th align=\"center\" valign=\"middle\"><font size=\"+2\"> Time </font></th>";
-		echo "<th align=\"center\" valign=\"middle\"><font size=\"+2\"> Name </font></th>";
-		echo "<th align=\"center\" valign=\"middle\"><font size=\"+2\"> Desc </font></th>";
+		echo "<th>Time</th>\n";
+		echo "<th>Name</th>\n";
+		echo "<th>Desc</th>\n";
 		echo "</tr>";
 
 		// Actual data
 		// Cut off the date with substr() because it's always 10 characters in front of time->(YYYY-MM-DD)
 		while($row=mysql_fetch_array($qry)) {
 			echo "<tr>";
-			echo "<td align=\"center\" valign=\"middle\"><font size=\"+2\"> " . substr($row[2],11,5) . " - " . substr($row[3],11,5) . " </font></td>";
-			echo "<td align=\"center\" valign=\"middle\"><font size=\"+2\"> " . $row['name'] . " </font></td>";
-			echo "<td align=\"center\" valign=\"middle\"><font size=\"+2\"> " . $row['description'] . " </font></td>";
+			echo "<td> " . substr($row[2],11,5) . " - " . substr($row[3],11,5) . "</td>";
+			echo "<td> " . $row['name'] . "</td>";
+			echo "<td>" . $row['description'] . "</td>";
 			echo "</tr>";
 		}
 
@@ -73,13 +73,15 @@ $qry03 = mysql_query($sql03) or die("Query03 not successfull");
 // --- HTML Output
 
 // HTML stuff
-echo "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \n \"http://www.w3.org/TR/html4/loose.dtd\">\n";
+echo "<!DOCTYPE html>";
 echo "<html>\n";
 echo "<head>\n";
-echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n";
+echo "<meta charset=\"UTF-8\">\n";
+echo "<meta http-equiv=\"refresh\" content=\"60\" >";
+echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
 echo "<title>MRBS Room Booking</title>\n";
 echo "</head>\n";
-echo "<body style=\"text-align:center;\">\n";
+echo "<body>\n";
 
 // Caption
 echo "<h1>MRBS Room Booking</h1>\n";
@@ -88,7 +90,7 @@ printRoom(1,$qry01);
 printRoom(2,$qry02);
 printRoom(3,$qry03);
 
-echo "\n<p>--<em>last update: </em>" . date("d. M Y") . " at " . date("G:i") . "</p>";
+echo "\n<p><div class=\"smallfont\">--last update: " . date("d. M Y") . " um " . date("G:i") . "</div></p>\n";
 
 echo "</body>\n";
 echo "</html>";
