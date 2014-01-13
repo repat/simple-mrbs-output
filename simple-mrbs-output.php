@@ -91,7 +91,7 @@ printRoom(1,$qry01);
 printRoom(2,$qry02);
 printRoom(3,$qry03);
 
-echo "\n<p><div class=\"smallfont\">--last update: " . date("d. M Y") . " um " . date("G:i") . "</div></p>\n";
+echo "\n<br /><div class=\"smallfont\">--last update: " . date("d. M Y") . " um " . date("G:i") . "</div>\n";
 
 echo "</body>\n";
 echo "</html>";
