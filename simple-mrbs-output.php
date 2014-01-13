@@ -9,22 +9,22 @@ of all booked rooms on current date, then prints an h1-caption and all the SELEC
 
 function printRoom($roomNr, $qry) {
 
-	echo "<h2>Room: X.". $roomNr . "</h2>";
+	echo "<h2>Room: X.". $roomNr . "</h2>\n";
 	if (mysql_num_rows($qry) == 0 ) {
 		echo "<div class=\"bigfont\"> No reservations in Room X". $roomNr. ".</div>";
 	} else {
 		// Starting table
-		echo "<table border=1>";
-		echo "<colgroup>";
+		echo "<table border=1>\n";
+		echo "<colgroup>\n";
 		echo "<col class=\"first\">\n";
 		echo "<col class=\"second\">\n";
 		echo "<col class=\"third\">\n";
-		echo "</colgroup>";
-		echo "<tr>";
+		echo "</colgroup>\n";
+		echo "<tr>\n";
 		echo "<th>Time</th>\n";
 		echo "<th>Name</th>\n";
 		echo "<th>Desc</th>\n";
-		echo "</tr>";
+		echo "</tr>\n";
 
 		// Actual data
 		// Cut off the date with substr() because it's always 10 characters in front of time->(YYYY-MM-DD)
@@ -37,7 +37,7 @@ function printRoom($roomNr, $qry) {
 		}
 
 		// Ending table
-		echo "</table>";
+		echo "\n</table>";
 	}
 	return 0;
 }
@@ -73,12 +73,13 @@ $qry03 = mysql_query($sql03) or die("Query03 not successfull");
 // --- HTML Output
 
 // HTML stuff
-echo "<!DOCTYPE html>";
+echo "<!DOCTYPE html>\n";
 echo "<html>\n";
 echo "<head>\n";
 echo "<meta charset=\"UTF-8\">\n";
-echo "<meta http-equiv=\"refresh\" content=\"60\" >";
-echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+echo "<meta http-equiv=\"refresh\" content=\"60\" >\n";
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\" />\n";
+echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n";
 echo "<title>MRBS Room Booking</title>\n";
 echo "</head>\n";
 echo "<body>\n";
